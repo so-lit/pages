@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119151804-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119151804-1');
+</script>
+
+	<title>pattern.school</title>
+	<meta name="viewport" content="width=device-width, 
+    initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <link id="favicon" rel="icon" href="https://cdn.glitch.com/30e0ae8d-f5ee-4826-af54-35c17d619693%2Ffavicon.ico?1526174777580" type="image/x-icon">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="description" content="Create, remix, and share generative art.">
+  <meta name="author" content="Samir Rayani and David Hoffman">
+  
+  <meta name="og:title" content="pattern.school">
+  <meta name="og:description" content="create your own phyllotaxy 🌻">
+  <meta name="og:image" content="https://cdn.glitch.com/30e0ae8d-f5ee-4826-af54-35c17d619693%2Fphyllotaxis-preview.png?1526173142385">
+  <meta name="og:url" content="http://pattern.school">
+  <meta name="og:site_name" content="pattern.school">
+  <meta name="og:type" content="website">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@patternschool">
+  <meta name="twitter:title" content="pattern.school">
+  <meta name="twitter:description" content="create your own phyllotaxy 🌻">
+  <meta name="twitter:image" content="https://cdn.glitch.com/30e0ae8d-f5ee-4826-af54-35c17d619693%2Fphyllotaxis-preview.png?1526173142385">
+  
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/arrows.css">
+  <!--<link rel="stylesheet" href="css/sliders.css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Lato|Patrick+Hand|Space+Mono" rel="stylesheet">
+</head>
+<body onhashchange="updateFields()">
+
+  <div class="container">
+    <div class="row">
+      <div class="eight columns offset-by-one">
+          <h1 class="logo">pattern.school</h1>
+        <p class="intro">create your own <a href="#" onClick="$('#phylo-description').toggle(); return false;">phyllotaxy</a> 🌻</p>
+          <p class="intro" style="display:none;" id="phylo-description">
+            In botany, phyllotaxis or phyllotaxy is the arrangement of leaves on a plant stem (from Ancient Greek phýllon "leaf" and táxis "arrangement"). Phyllotactic spirals form a distinctive class of patterns in nature. [<a href="https://en.wikipedia.org/wiki/Phyllotaxis">wikipedia</a>]
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="six columns offset-by-one">
+        <div id="viz">
+                
+        </div>
+        
+        <!--<h6><a href="#" id="deleteCreations" onclick="deleteCreations();" style="display:none;">Clear Saved</a></h6>
+        
+         <div class="creations">
+          <ul id="savedCreations" class="twelve columns">
+          </ul>
+        </div>
+         <script id="saved-creation-template" type="text/x-custom-template">
+        <li class="three columns">
+          <a href="#" class="link">
+            <span class="timestamp"></span>
+            <span class="text"></span>
+           </a>
+        </li>
+    </script>-->
+      </div>
+        
+      <div id="controls" class="three columns">
+        <!--<a id="" class="dropdown-closed button u-full-width" onclick="">🌻PHYLLOTAXIS <i class="arrow down"></i></a>
+        <ul class="dropdown-open u-full-width">
+          <li><a id="" class="button u-full-width" onclick="">🌻PHYLLOTAXIS <i class="arrow up"></i></a></li>
+          <li><a id="" class="button u-full-width" onclick="">⛰️ABC</a></li>
+          <li><a id="" class="button u-full-width" onclick="">🌴DEF</a></li>
+          <li><a id="" class="button u-full-width" onclick="">🗺GHI</a></li>
+          <li><a id="" class="button u-full-width" onclick="">⚖JKL</a></li>
+        </ul>-->  
+        <input type="button" value="⚡️Random" id="random" class="u-full-width" onclick="randomPatterns();"/>
+        <!--<input type="button" value="❤️Save" id="saveCreation" class="u-full-width" onclick="saveCreation();"/>-->
+        <!-- <input type="button" value="❤️GIF" id="exportGif" class="u-full-width" onclick="exportGif();"/> -->
+        <input type="button" value="❤️Tweet" id="tweetPattern" class="u-full-width" onclick="tweetPattern();"/>
+        <ul class="sliders">
+          <li>
+            <label>Size</label>
+            <input type="range" min="3" max="10" class="slider" id="size" oninput="myp5.resetViz()">
+          </li>
+
+          <li>
+            <label>Spacing</label>
+            <input type="range" min="5" max="15" class="slider" id="spacing" oninput="myp5.resetViz()">
+          </li>
+
+          <li>
+            <label>Speed</label>
+            <input type="range" step="0.5" min="1" max="5" class="slider" id="speed" oninput="myp5.resetViz()">
+          </li>
+
+          <li>
+            <label>Angle</label>
+            <input type="range" step="0.1" min="137" max="138" value="137.5" class="slider" id="angle" oninput="myp5.resetViz()">
+          </li>
+
+          <li>
+            <label>Color</label>
+            <input type="range" step="0.1" min="0" max="5" class="slider" id="colorScale" oninput="myp5.resetViz()">
+          </li>
+
+          <li>
+            <label>Rotation</label>
+            <input type="range" step="0.01" min="0" max=".25" class="slider" id="rotation" oninput="myp5.resetViz()">
+          </li>
+        </ul>
+
+        <div id="footer">
+          <p><a href="/faq.html">About</a> | <a href="http://eepurl.com/dnVYRj" target="_blank">Subscribe</a></p>
+          <!--<p>ϕ=n*137.5° | r=c*√n</p>-->
+        </div>
+      </div>
+    </div>  
+  </div>
+  
+    
+ 
+    
+    
+  <script
+  src="https://cdn.glitch.com/30e0ae8d-f5ee-4826-af54-35c17d619693%2FjQuery.v3.3.1.min.js?1526170625629"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.js
+  "></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+  <script type="text/javascript" src="js/sketch.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  
+  
+    
+</body>
+</html>

@@ -1,0 +1,180 @@
+body {
+  font-family:'Lato', sans;
+  background: rgb(0,0,0);
+}
+
+h1.logo {
+  font-family: 'Space Mono', Helvetica, Sans-serif;
+  text-transform: uppercase;
+  padding-top: 7px;
+  letter-spacing: .3rem;
+  font-size: 2.8rem;
+  width: 220px;
+  margin: 20px 0 0 0;
+}
+
+p.intro {
+  letter-spacing: 0;
+  margin-bottom: 20px;
+  font-family: 'Space Mono', Helvetica, Sans-serif;
+}
+
+p.faq, ul.faq {
+  font-size: 18px;
+}
+
+#faq h4 {
+  font-size: 28px;
+  line-height: 3.2rem;
+  letter-spacing: 1px;
+  margin-top: 60px;
+  font-weight: bold;
+}
+
+#paper {
+ background: #fcfcfc;
+ color: #333;
+ padding: 60px;
+ box-shadow: 0px 4px 50px rgba(0,0,0,.75);
+ margin: 20px 0;
+}
+
+#paper a {
+  color: #333;
+}
+
+#controls {
+  font-family: 'Space Mono', Helvetica, Sans-serif;
+  position: relative;
+}
+
+  #controls .dropdown-open {
+    background: #fff;
+    box-shadow: 0 2px 25px rgba(0,0,0,.75);
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    display: none;
+  }
+
+#controls .dropdown-open li {
+   border-bottom: 1px solid #E0E0E0;
+}
+
+#controls .dropdown-open li,
+#controls .dropdown-open li a {
+    margin-bottom: 0;
+}
+
+#controls .dropdown-open li a:hover {
+   box-shadow: none; 
+}
+
+#controls .dropdown-closed:hover + .dropdown-open {
+  display: block;
+}
+
+  #controls ul.sliders {
+    margin-top: 20px;
+    position: relative;
+    z-index: 50;
+  }
+
+#controls ul.sliders li {
+    margin-bottom: .5rem;
+  }
+
+  #controls ul.sliders li label {
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    font-size: 1.2rem;
+    margin-bottom: 0px;
+    font-weight: 100;
+    position: relative;
+  }
+  
+  #controls ul.sliders li input {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+
+
+#viz {
+  background: #1C1826;
+  margin-bottom: 0;
+  width: 320px;
+  height: 320px;
+  position: relative;
+  left: -20px;
+}
+
+@media (min-width: 325px) {
+  #viz {
+    left: 0;
+  }
+}
+
+
+@media (min-width: 401px) {
+  #viz {
+    margin-bottom: 20px;
+    width:350px;
+    height: 350px;
+  }
+}
+
+
+  .creations a {
+    letter-spacing: .1rem;
+    font-size: 1.2rem;
+  } 
+
+  .creations li {
+    background: rgb(10,10,10);
+    margin-bottom: 20px;
+  }
+
+    .creations li.three:nth-child(4n+5) {
+      margin-left: 0;
+    }
+
+    .creations li:hover,
+    .creations li:focus {
+      box-shadow: 0px 4px 25px rgba(0,0,0,.50);
+    }  
+
+    .creations li a {
+    padding: 10px;
+    height: 60px;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    }
+
+    .creations span.text {
+      display: none;
+    }
+
+    h6 a {
+      font-family: 'Space Mono', Helvetica, Sans-serif;   
+      letter-spacing: .1rem;
+      font-size: 1.2rem;
+    }
+
+
+#footer {
+  padding-top: 7px;
+  margin: 50px 0 40px 0; 
+}
+
+
+#footer p {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 10px 0;
+  font-family: 'Space Mono', Helvetica, Sans-serif;   
+}

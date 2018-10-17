@@ -1,0 +1,18 @@
+{
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "escape-html": "^1.0.3",
+    "promise": "^7.1.1",
+    "express": "*",
+    "store": "^2.0.12",
+    "body-parser": "^1.18.2",
+    "gif.js": "^0.2.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "6.13.0"
+  }
+}
