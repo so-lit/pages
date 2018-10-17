@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var current_date;
+
+        function loadFile(timeStamp) {
+            var text = {};
+            $.ajaxSetup({
+                async: false
+            });
+            $.getJSON("times/" + timeStamp + ".json", function (json) {
+                //console.log(json); // this will show the info it in firebug console
+                text = json;
+            });
+            $.ajaxSetup({
+                async: true
+            });
+            return (text);
+        }
+        function startTime() {
+            document.getElementsByTagName('body')[0].className='random-' + Math.floor((Math.random() * 10) + 1);
+            document.getElementsByTagName('body')[0].className+=' pos-' + Math.floor((Math.random() * 10) + 1);
+            document.getElementsByTagName('body')[0].className+=' color-' + Math.floor((Math.random() * 10) + 1);
+          
+            var today = new Date();
+            if(current_date !== undefined
+                && current_date.getMinutes() === today.getMinutes() ) {
+                var t = setTimeout(startTime, 60000);
+                return;
+            }
+
+            current_date = today;
+            var h = today.getHours();
+            var m = today.getMinutes();
+            h = checkTime(h);
+            m = checkTime(m);
+            var timeCode = h + ":" + m;
+
+            // Load JSON file
+            var lit_json = loadFile(timeCode);
+
+            // select single random text
+            var lit_json_single = lit_json[Math.floor(Math.random() * lit_json.length)]
+
+            // get quote_len
+            var quote_len = (lit_json_single.quote_first + lit_json_single.quote_time_case + lit_json_single.quote_last).length
+
+            // Write to HTML
+            try {
+                document.getElementById('lit_quote').innerHTML =
+                    lit_json_single.quote_first + '<em>' + lit_json_single.quote_time_case + '</em>' + lit_json_single.quote_last;
+                document.getElementById('book').innerHTML = lit_json_single.title;
+                document.getElementById('author').innerHTML = lit_json_single.author;
+
+                // set fontsize according to length
+                // Equation to make fontsize match
+                // y = 6.190864 - 0.01211676*x + 0.00001176814*x^2 - 1.969435e-9*x^3, where x is quote_len
+                document.getElementById('lit_quote').style.fontSize = ((6.000864 - 0.01211676 * quote_len + 0.00001176814 * quote_len ** 2 - 1.969435e-9 * quote_len ** 3) + "vw");
+
+            } catch (e) {
+                console.log(e);
+            }
+
+            // Timeout
+            var t = setTimeout(startTime, 60000);
+        }
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+            return i;
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Caveat:400,700|EB+Garamond:400,700|Josefin+Slab:400,700|Libre+Baskerville:400,700|Lusitana:400,700|Merriweather:400,700|Noto+Serif:400,700|Roboto:400,400i|Vollkorn:400,700|Work+Sans:400,700|Yrsa:400,700" rel="stylesheet">
+
+    <title>Literature Clock</title>
+
+</head>
+
+<body onload="startTime()">
+    <div id="main_text">
+        <blockquote id="lit_quote"></blockquote>
+        <cite>
+            -
+            <span id="book"></span>,
+            <span id="author"></span>
+        </cite>
+    </div>
+</body>
+
+</html>

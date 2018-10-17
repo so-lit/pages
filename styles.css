@@ -1,0 +1,64 @@
+html, body { 
+    margin: 0; padding: 0;
+    height: 100%; 
+    overflow: auto;
+    position: relative;
+    background-size: 400% 400%;
+}
+
+#lit_quote em {
+    font-weight: 900;
+    color: rgb(19, 19, 19);
+    font-style: normal
+}
+
+#main_text {
+    width: 80vw;
+    margin: auto; 
+    color: SlateGray;
+    position: relative;
+}
+
+.random-1 { font-family: 'Merriweather', serif; }
+.random-2 { font-family: 'Noto Serif', serif; }
+.random-3 { font-family: 'Work Sans', sans-serif; }
+.random-4 { font-family: 'Libre Baskerville', serif; }
+.random-5 { font-family: 'EB Garamond', serif; }
+.random-6 { font-family: 'Vollkorn', serif; }
+.random-7 { font-family: 'Caveat', cursive; }
+.random-8 { font-family: 'Josefin Slab', serif; }
+.random-9 { font-family: 'Yrsa', serif; }
+.random-10 { font-family: 'Lusitana', serif; }
+
+.pos-1 { top: 0%; }
+.pos-2 { top: 5%; }
+.pos-3 { top: 10%; }
+.pos-4 { top: 15%; }
+.pos-5 { top: 20%; }
+.pos-6 { top: 25%; }
+.pos-7 { top: 30%; }
+.pos-8 { top: 35%; }
+.pos-9 { top: 40%; }
+.pos-10 { top: 45%; }
+
+.color-1 { background: linear-gradient(0deg, Aquamarine, #ffffff); }
+.color-2 { background: linear-gradient(0deg, #ffffff, Coral); }
+.color-3 { background: linear-gradient(0deg, DarkGray, #ffffff); }
+.color-4 { background: linear-gradient(0deg, #ffffff, SandyBrown); }
+.color-5 { background: linear-gradient(0deg, Gold, #ffffff); }
+.color-6 { background: linear-gradient(0deg, #ffffff, LightPink); }
+.color-7 { background: linear-gradient(0deg, LightSteelBlue, #ffffff); }
+.color-8 { background: linear-gradient(0deg, #ffffff, Plum); }
+.color-9 { background: linear-gradient(0deg, Thistle, #ffffff); }
+.color-10 { background: linear-gradient(0deg, #ffffff, Teal); }
+
+#book, #author { font-family: 'Roboto', sans-serif; }
+
+cite {
+    float: right;
+    padding-left: 10vw;
+    font-size: 2.3vw;
+}
+cite #book{
+    font-style: normal;
+}
